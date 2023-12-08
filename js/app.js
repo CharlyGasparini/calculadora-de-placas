@@ -16,12 +16,12 @@ form.addEventListener("submit", e => {
 
     formData.forEach((value, key) => data[key] = Number(value));
 
-    unitAreaPrice =getUnitAreaPrice(plateArea.data.price)
+    unitAreaPrice = getUnitAreaPrice(plateArea, data.price);
     
     if(plateArea !== data.height * data.width) {
         unitAreaPrice *= wasteCoefficient;
     }
-    
+
     pieceArea = data.width * data.height;
     profits = data.profits ? data.profits : 0;
 
