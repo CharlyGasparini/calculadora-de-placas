@@ -4,7 +4,9 @@ const result = document.querySelector(".result");
 
 // Constants
 const plateArea = 260 * 183;
+const wasteCoefficient = 1.1;
 
+// Events
 form.addEventListener("submit", e => {
     e.preventDefault();
     result.textContent = "";
@@ -13,7 +15,13 @@ form.addEventListener("submit", e => {
     let unitAreaPrice, pieceArea, profits, piecePrice;
 
     formData.forEach((value, key) => data[key] = Number(value));
-    unitAreaPrice = getUnitAreaPrice(plateArea, data.price);
+
+    unitAreaPrice =getUnitAreaPrice(plateArea.data.price)
+    
+    if(plateArea !== data.height * data.width) {
+        unitAreaPrice *= wasteCoefficient;
+    }
+    
     pieceArea = data.width * data.height;
     profits = data.profits ? data.profits : 0;
 
@@ -25,13 +33,7 @@ form.addEventListener("submit", e => {
 
 // Functions
 const getUnitAreaPrice = (area, price) => {
-    const wasteCoeficient = 1.1;
-    
-    if(data.height * data.width === plateArea) {
-        return price / area;
-    }
-
-    return (price / area) * wasteCoeficient;
+    return price / area;
 }
 
 const getPiecePrice = (area, unitPrice, profits) => {
