@@ -3,7 +3,7 @@ const form = document.getElementById("form");
 const result = document.querySelector(".result");
 
 // Constants
-const plateArea = 260 * 183;
+const plateArea = 2600 * 1830;
 
 form.addEventListener("submit", e => {
     e.preventDefault();
