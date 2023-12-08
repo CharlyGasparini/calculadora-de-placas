@@ -28,10 +28,12 @@
 }
 
 h1, h3 {
+    /* color: darkslategray; */
     margin: 1.5rem 0;
 }
 
 body {
+    background: lightsteelblue;
     width: 100vw;
     height: 100vh;
     text-align: center;
@@ -42,6 +44,7 @@ body {
         margin: auto;
 
         & form {
+            background: whitesmoke;
             padding: 2rem;
             border-radius: 1rem;
             border: 5px double cornflowerblue;
