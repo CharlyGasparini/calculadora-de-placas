@@ -25,7 +25,13 @@ form.addEventListener("submit", e => {
 
 // Functions
 const getUnitAreaPrice = (area, price) => {
-    return price / area;
+    const wasteCoeficient = 1.1;
+    
+    if(data.height * data.width === plateArea) {
+        return price / area;
+    }
+
+    return (price / area) * wasteCoeficient;
 }
 
 const getPiecePrice = (area, unitPrice, profits) => {
